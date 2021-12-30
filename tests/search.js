@@ -1,7 +1,10 @@
 import { search } from '../pages/search';
 
 fixture`Search functionality fixture`
-    .page`https://www.darphin.com/`;
+    .page`https://www.darphin.com/`
+    .beforeEach(async t => {
+		await t.maximizeWindow();
+	});
 
 test('Check search suggestion works and matches search result items', async t => {
     // Click search icon and search for milk
