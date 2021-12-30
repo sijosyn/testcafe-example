@@ -8,6 +8,8 @@ class searchPage {
     productResults = Selector('.product-results');
     esearchProduct = Selector('.esearch-product');
     searchNoResults = Selector('.search-no-results');
+
+    addToBag = Selector('.product__button--add-to-bag');
 }
 
 export let search = new searchPage();

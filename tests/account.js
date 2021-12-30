@@ -19,18 +19,18 @@ test('Check account sign up functionality', async t => {
     await t.click(account.logIn);
 
     // Enter first, last, password, click signup checkbox and click sign up
-    await t.typeText(account.firstName, 'First');
-    await t.typeText(account.lastName, 'Last');
-    await t.typeText(account.password, 'Password2021');
-    await t.click(account.logInCheckbox, { offsetX: 10 });
-    await t.click(account.signUp, {speed: 0.5});
+    await t.typeText(account.firstName, 'First')
+           .typeText(account.lastName, 'Last')
+           .typeText(account.password, 'Password2021')
+           .click(account.logInCheckbox, { offsetX: 10 })
+           .click(account.signUp, {speed: 0.5});
 
-    // Check account profile header exists and email address provided is displayed on account profile page
+    // Verify account profile header exists and email address provided is displayed on account profile page
     await t.expect(account.accountProfileText.exists).ok();
     await t.expect(account.accountProfileEmailContent.textContent).contains(email);
 });
 
-test.only('Check password error on account sign up', async t => {
+test('Check password error on account sign up', async t => {
     // Click account icon
     await t.click(account.myAccount);
 
@@ -42,11 +42,11 @@ test.only('Check password error on account sign up', async t => {
     await t.click(account.logIn);
 
     // Enter first, last, password, click signup checkbox and click sign up
-    await t.typeText(account.firstName, 'First');
-    await t.typeText(account.lastName, 'Last');
-    await t.typeText(account.password, 'Password');
-    await t.click(account.logInCheckbox, { offsetX: 10 });
-    await t.click(account.signUp, {speed: 0.5});
+    await t.typeText(account.firstName, 'First')
+           .typeText(account.lastName, 'Last')
+           .typeText(account.password, 'Password')
+           .click(account.logInCheckbox, { offsetX: 10 })
+           .click(account.signUp, {speed: 0.5});
 
     // Hit esc key to dismiss the modal
     await t.pressKey('esc');
